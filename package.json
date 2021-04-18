@@ -1,0 +1,79 @@
+{
+    "name": "ng-migration",
+    "version": "1.0.0",
+    "description": "Conversion project of an angular js project to Angular()\u001b[DCrud) ",
+    "main": "index.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "npm run clean-dev && webpack serve  --env=dev --config webpack.config.js",
+        "build-dev": "npm run clean-dev && webpack --env=dev --mode development --config webpack.config.js",
+        "build-prod": "webpack --env=prod --optimize-minimize --mode production --config webpack.config.js --progress --profile --colors",
+        "clean-dev": "rimraf dist/*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/iean/ng-migration.git"
+    },
+    "keywords": [
+        "ng-migration"
+    ],
+    "author": "Masud Alam",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/iean/ng-migration/issues"
+    },
+    "homepage": "https://github.com/iean/ng-migration#readme",
+    "dependencies": {
+        "@types/angular": "^1.8.1",
+        "@types/angular-mocks": "^1.7.0",
+        "@types/angular-ui-router": "^1.1.40",
+        "@types/core-js": "^2.5.4",
+        "@types/jasmine": "^3.6.9",
+        "@types/node": "^14.14.41",
+        "@types/webpack-env": "^1.16.0",
+        "angular": "^1.8.2",
+        "angular-ui-router": "^1.0.29",
+        "angular2-template-loader": "^0.6.2",
+        "awesome-typescript-loader": "^5.2.1",
+        "copy-webpack-plugin": "^8.1.1",
+        "core-js": "^3.10.1",
+        "coveralls": "^3.1.0",
+        "extract-loader": "^5.1.0",
+        "extract-text-webpack-plugin": "^3.0.2",
+        "fibers": "^5.0.0",
+        "file-loader": "^6.2.0",
+        "html-loader": "^2.1.2",
+        "html-webpack-plugin": "^5.3.1",
+        "http-server": "^0.12.3",
+        "less": "^4.1.1",
+        "less-loader": "^8.1.1",
+        "mini-css-extract-plugin": "^1.4.1",
+        "ng-annotate-loader": "^0.7.0",
+        "node-sass": "^5.0.0",
+        "remap-istanbul": "^0.13.0",
+        "rimraf": "^3.0.2",
+        "tslint": "^6.1.3",
+        "tslint-loader": "^3.5.4",
+        "uglifyjs-webpack-plugin": "^2.2.0",
+        "url-loader": "^4.1.1",
+        "webpack-cli": "^4.6.0",
+        "webpack-dev-server": "^3.11.2",
+        "webpack-merge": "^5.7.3",
+        "zone.js": "^0.11.4"
+    },
+    "devDependencies": {
+        "angular-sanitize": "^1.8.2",
+        "angular-ui-bootstrap": "^2.5.6",
+        "angularjs-template-loader": "^0.1.2",
+        "bootstrap": "^4.6.0",
+        "css-loader": "^5.2.2",
+        "jquery": "^3.6.0",
+        "raw-loader": "^4.0.2",
+        "sass": "^1.32.10",
+        "sass-loader": "^11.0.1",
+        "style-loader": "^2.0.0",
+        "ts-loader": "^8.1.0",
+        "typescript": "^4.2.4",
+        "webpack": "^5.33.2"
+    }
+}
