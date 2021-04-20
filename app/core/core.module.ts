@@ -13,6 +13,7 @@ import { UserHttpService } from './services/user.http.service';
  */
 import { configuration } from './core.configuration';
 import { routing } from './core.routes';
+import { AppHeaderComponent } from './components/header/header.component';
 
 export const moduleName =
   angular.module('application.core', [
@@ -22,6 +23,7 @@ export const moduleName =
   /**
    * Register Module Components
    */
+  .component(AppHeaderComponent.selector,AppHeaderComponent)
   .component(App.selector, App)
   .component(Root.selector, Root)
 

@@ -1,44 +1,54 @@
-import { IUser } from '../../../models/user.model';
-import { UsersDataService } from '../../services/users.data.service';
-import { ILogService } from 'angular';
-import { UserModuleConstants } from '../../users.constants';
+import { IUser } from "./../../../models/user.model";
+import { UsersDataService } from "../../services/users.data.service";
+import { ILogService, IScope, ITimeoutService } from "angular";
+import { UserModuleConstants } from "../../users.constants";
 
-import './users.container.scss';
+import "./users.container.scss";
+
+
 class UserListContainerComponentController {
+  usersList: Array<IUser> = new Array<IUser>();
+  isDataPresent: boolean = false;
+  constructor(
+    private $log: ILogService,
+    private usersService: UsersDataService,
+    private $scope: IScope,
+    private $timeout: ITimeoutService
+  ) {
+    "ngInject";
+    this.fetchData();
+  }
 
-    userList : IUser[] = new Array<IUser>();
-    constructor(
-        private $log: ILogService, private usersService : UsersDataService
-    ) {
-        'ngInject';
-     }
+  $onInit(): void {}
+  $onChanges(changesObj: any) {
+    console.log(changesObj);
+  }
 
-    $onInit(): void {
-        this.fetchData();
-    }
+  private fetchData() {
+    console.log('Getting All users for container list view');
+    this.usersService
+      .getAllUsers()
+      .then((users) => {
+            this.usersList = users;
+            this.isDataPresent = true;
+      })
+      .catch((exception) => {
+        console.log('Error Occured' + exception);
+        this.isDataPresent = true;
+      });
+  }
 
-    private fetchData() {
-        console.log('Getting All users for container list view');
-        this.usersService.getAllUsers().then(users=>{
-            this.userList = users;
-            console.log(JSON.stringify(this.userList));
-        }).catch(exception =>{
-            console.log('Error Occured' + exception);
-        });
-    }
+  private deleteUser(id: number) {
+    console.log('Delete user with ID ' + id);
+  }
 
-    private deleteUser(){
-
-    }
-
-    private editUser(){
-        
-    }
-
+  private editUser(user: IUser) {
+    console.log("Editing user Object" + JSON.stringify(user));
+  }
 }
 
 export class UserListContainerComponent implements angular.IComponentOptions {
-    static selector = UserModuleConstants.USER_LIST_CONTAINER_COMPONENT;
-    static controller = UserListContainerComponentController;
-    static template = require('./users.container.html');
+  static selector = UserModuleConstants.USER_LIST_CONTAINER_COMPONENT;
+  static controller = UserListContainerComponentController;
+  static template = require("./users.container.html");
 }
