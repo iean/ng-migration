@@ -1,17 +1,26 @@
-import angular = require("angular");
-import { AddUserContainerComponent } from "./containers/add-user/add-user.container";
-import { UserListContainerComponent } from "./containers/users-list/users.container";
-import { UsersDataService } from "./services/users.data.service";
-import { userRouting } from "./users.routes";
+import { AddUserFormComponent } from './components/add-user-form/add-user-form.component';
+import angular = require('angular');
+import { AddUserContainerComponent } from './containers/add-user-container/add-user.container';
+import { UserListContainerComponent } from './containers/user-container/users.container';
+import { UsersDataService } from './services/users.data.service';
+import { userRouting } from './users.routes';
 
 
 
 export const moduleName = angular.module('application.users',['ui.router'])
+
+
+
+
+// registering single responsibility components
+.component(AddUserFormComponent.selector , AddUserFormComponent)
 // registering contianer components
 .component(AddUserContainerComponent.selector , AddUserContainerComponent)
 .component(UserListContainerComponent.selector , UserListContainerComponent)
 
-.service(UsersDataService.selector,UsersDataService)
+
+/** user service registration */
+.service(UsersDataService.selector, UsersDataService)
 
 /**
  * Register Routes

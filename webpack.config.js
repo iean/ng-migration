@@ -53,6 +53,15 @@ module.exports = {
                 ],
             },
             {
+                test: /\.(jpg|png|gif)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        esModule: false,
+                    },
+                }],
+            },
+            {
                 test: /\.html$/,
                 use: [{
                     loader: 'raw-loader',

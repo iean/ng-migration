@@ -1,0 +1,13 @@
+<form name="addUserForm" ng-submit="$ctrl.saveUser()" novalidate>
+    <div class="form-group">
+        <label>First name</label>
+        <input type="text" class="form-control" ng-model="$ctrl.firstName" placeholder="firstName" required>
+    </div>
+    <div class="form-group">
+        <label>Sir name</label>
+        <input type="text" class="form-control" ng-model="$ctrl.sirName" placeholder="sirName" required>
+        <small id="emailHelp" class="form-text text-muted">Please provide sir name of the user.</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save User</button>
+</form>
