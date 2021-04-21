@@ -13,9 +13,9 @@ class UserListController {
      * user removed output event to be fired 
      */
     userRemoved: ( $event : {
-        $event : {
-            id : number
-        }
+        $event: {
+            user: IUser;
+        };
     }) => void;
 
     /**
@@ -40,7 +40,6 @@ class UserListController {
 
     $onChanges(changesObj: any) {
         console.log(changesObj);
-    
     }
     
 
@@ -55,7 +54,7 @@ class UserListController {
          */
         this.userRemoved({
             $event:{
-                id : user.id
+                user:user
             }
         });
     }

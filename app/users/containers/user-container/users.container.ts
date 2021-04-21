@@ -38,8 +38,14 @@ class UserListContainerComponentController {
       });
   }
 
-  private deleteUser(id: number) {
-    console.log('Delete user with ID ' + id);
+  private deleteUser(user: IUser) {
+    console.log('Deleting User ::: ' + JSON.stringify(user));
+      this.usersService.removeUser(user).then((user) => {
+       this.fetchData();
+  })
+  .catch((exception) => {
+    console.log('Error Occured' + exception);
+  });
   }
 
   private editUser(user: IUser) {

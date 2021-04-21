@@ -31,6 +31,9 @@ export class UsersDataService{
                 this.totalUsers =  userResponse.data;
                 return this.$q.resolve(this.totalUsers);
             }
+            else{
+                this.$q.resolve([]);
+            }
         }).catch(error=>{
             console.log(JSON.stringify(error));
             return this.$q.resolve([]);
@@ -45,8 +48,15 @@ export class UsersDataService{
         this.totalUsers.push(user);
     }
 
-    removeUser(user : IUser) {
-        this.totalUsers = this.totalUsers.filter(userItem => user.id !== userItem.id)
+    removeUser(user : IUser): IPromise<IUser> {
+        return this._userHttpService.RemoveUser(user.id).then(apiResponse=>{
+            if (apiResponse.status === 200) {
+                return this.$q.resolve(user);
+            }
+        }).catch(error=>{
+            console.log(JSON.stringify(error));
+            return this.$q.resolve(user);
+        });
     }
 
 
