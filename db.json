@@ -1,36 +1,28 @@
 {
-
-    "users": [{
-            "id": 1,
-            "firstName": "Masud 1",
-            "sirName": "Alam",
-            "isActive": true
-        },
-        {
-            "id": 2,
-            "firstName": "Masud2",
-            "sirName": "Alam",
-            "isActive": true
-        }, {
-            "id": 3,
-            "firstName": "Masud3",
-            "sirName": "Alam",
-            "isActive": true
-        }, {
-            "id": 4,
-            "firstName": "Masud4",
-            "sirName": "Alam",
-            "isActive": true
-        }, {
-            "id": 5,
-            "firstName": "Masud5",
-            "sirName": "Alam",
-            "isActive": true
-        }, {
-            "id": 6,
-            "firstName": "Masud6",
-            "sirName": "Alam",
-            "isActive": true
-        }
-    ]
+  "users": [
+    {
+      "id": 2,
+      "firstName": "Masud2",
+      "sirName": "Alam",
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "firstName": "Masud3",
+      "sirName": "Alam",
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "firstName": "Masud4",
+      "sirName": "Alam",
+      "isActive": true
+    },
+    {
+      "id": 5,
+      "firstName": "Masud5",
+      "sirName": "Alam",
+      "isActive": true
+    }
+  ]
 }

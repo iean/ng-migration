@@ -13,6 +13,8 @@ module.exports = {
             "angular/angular.js",
             "angular-ui-router/release/angular-ui-router.js",
             "angular-sanitize",
+            "jquery",
+            "./lib/dx.web.js"
 
         ],
     },
@@ -121,6 +123,11 @@ module.exports = {
                 }
             }
         }),
+        new webpack.SourceMapDevToolPlugin({
+            filename: '[name].js.map',
+            exclude: ['vendor.js'],
+            sourceRoot: "webpack:///"
+        })
     ],
     resolve: {
         extensions: [".tsx", ".ts", ".js"],
