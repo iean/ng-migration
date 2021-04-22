@@ -1,5 +1,4 @@
 import * as angular from 'angular';
-
 /**
  * Import Application Modules
  */
@@ -8,5 +7,5 @@ import {moduleName as usersModule} from './users/users.module';
 
 export const moduleName =
   angular.module('application', [
-    coreModule,usersModule ])
+    coreModule,usersModule ,'dx'])
   .name;

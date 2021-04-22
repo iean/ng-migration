@@ -13,9 +13,7 @@ module.exports = {
             "angular/angular.js",
             "angular-ui-router/release/angular-ui-router.js",
             "angular-sanitize",
-            "jquery",
-            "./lib/dx.web.js"
-
+            "./custom.js"
         ],
     },
     context: __dirname + "",
@@ -102,6 +100,11 @@ module.exports = {
                 test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: "file-loader",
             },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: path.resolve(__dirname, "node_modules")
+            }
         ],
     },
     plugins: [
@@ -127,10 +130,14 @@ module.exports = {
             filename: '[name].js.map',
             exclude: ['vendor.js'],
             sourceRoot: "webpack:///"
-        })
+        }),
+
     ],
     resolve: {
         extensions: [".tsx", ".ts", ".js"],
+        alias: {
+            'node_modules': path.join(__dirname, 'node_modules'),
+        }
     },
     devServer: {
         contentBase: path.join(__dirname, "dist"),
@@ -141,6 +148,8 @@ module.exports = {
     optimization: {
         splitChunks: {
             chunks: "all",
+
         },
+
     },
 };

@@ -1,3 +1,4 @@
+import DevExpress from 'devextreme';
 import { List } from 'immutable';
 import { IUser } from './../../../models/user.model';
 import './user-list.component.scss';
@@ -8,7 +9,7 @@ class UserListController {
      * binding list of users as input to the component
      */
      users : Array<IUser>;
-
+     
     /**
      * user removed output event to be fired 
      */
@@ -72,6 +73,12 @@ class UserListController {
     checkUsers(){
        console.log(this.users); 
     }
+
+    capitalize = function(text:string) {
+        return text.charAt(0).toUpperCase() + text.slice(1);
+    }
+    showMessage(e:any) {
+        var mode = e.component.option("stylingMode");    };
 
 }
 
