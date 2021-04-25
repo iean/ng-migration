@@ -13,8 +13,9 @@ class AddUserContainerComponentController {
         console.log('Init in add user component controller');
     }
     add(user : IUser)  {
-        this.usersService.addUser(user);
-        JSON.stringify(user);
+        this.usersService.addUser(user).then(()=>{
+            this.$state.go('users');
+        });
         this.$state.go('users');
     }
 

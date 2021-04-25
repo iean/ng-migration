@@ -3,7 +3,7 @@ import { UserModuleConstants } from '../users.constants';
 import { UserHttpService } from '../../core/services/user.http.service';
 import { IPromise } from 'angular';
 
-export class UsersDataService{
+export class UsersDataService {
 
     static selector = UserModuleConstants.USER_SERVICE_NAME;
     totalUsers : IUser[] = new Array<IUser>();
@@ -14,7 +14,7 @@ export class UsersDataService{
     /**
      * injects angular service and user data service
      */
-    constructor(private $q : angular.IQService , private userHttpService :UserHttpService) {
+    constructor(private $q : angular.IQService , private userHttpService : UserHttpService) {
         'ngInject';
         this._userHttpService = userHttpService;
 
@@ -26,15 +26,14 @@ export class UsersDataService{
      */
     getAllUsers() : IPromise<IUser[]> {
 
-        return this._userHttpService.GetAllUsers().then(userResponse=>{
-            if(userResponse.status === 200) {
+        return this._userHttpService.GetAllUsers().then(userResponse => {
+            if (userResponse.status === 200) {
                 this.totalUsers =  userResponse.data;
                 return this.$q.resolve(this.totalUsers);
-            }
-            else{
+            } else {
                 this.$q.resolve([]);
             }
-        }).catch(error=>{
+        }).catch(error => {
             console.log(JSON.stringify(error));
             return this.$q.resolve([]);
 
@@ -44,16 +43,28 @@ export class UsersDataService{
      * 
      * @param user Create an User
      */
-    addUser(user : IUser) {
-        this.totalUsers.push(user);
+    addUser(user : IUser) : IPromise<IUser> {
+
+        return this._userHttpService.AddUser(user).then(userResponse => {
+            if (userResponse.status === 200) {
+                let addedUser  =  userResponse.data;
+                return this.$q.resolve(addedUser);
+            } else {
+                this.$q.resolve(user);
+            }
+        }).catch(error => {
+            console.log(JSON.stringify(error));
+            return this.$q.resolve(user);
+
+        });
     }
 
     removeUser(user : IUser): IPromise<IUser> {
-        return this._userHttpService.RemoveUser(user.id).then(apiResponse=>{
+        return this._userHttpService.RemoveUser(user.id).then(apiResponse => {
             if (apiResponse.status === 200) {
                 return this.$q.resolve(user);
             }
-        }).catch(error=>{
+        }).catch(error => {
             console.log(JSON.stringify(error));
             return this.$q.resolve(user);
         });

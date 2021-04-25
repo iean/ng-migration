@@ -14,6 +14,9 @@
   * see: https://github.com/Microsoft/TypeScript/issues/10178
   */
  import * as angular from 'angular';
+
+ import 'devextreme/dist/css/dx.common.css';
+import 'devextreme/dist/css/dx.light.css'
  
  /**
   *  Import module to be bootstrapped

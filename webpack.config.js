@@ -13,8 +13,14 @@ module.exports = {
             "angular/angular.js",
             "angular-ui-router/release/angular-ui-router.js",
             "angular-sanitize",
-            "./custom.js"
+
         ],
+        dx: [
+            'jquery/dist/jquery.min.js',
+            'jquery/dist/jquery.slim.js',
+            'knockout/build/output/knockout-latest.js',
+            './dx.custom'
+        ]
     },
     context: __dirname + "",
     output: {
@@ -104,7 +110,19 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: path.resolve(__dirname, "node_modules")
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" }
+                ]
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                use: "url-loader?name=[name].[ext]"
             }
+
         ],
     },
     plugins: [

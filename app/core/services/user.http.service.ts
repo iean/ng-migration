@@ -44,7 +44,7 @@ class UserHttpService  extends BaseHttpService{
      * @param user Add a new user to the databse
      * @returns
      */
-    AddUser(user : IUser) {
+    AddUser(user : IUser):IPromise<IHttpResponse<IUser>> {
         return this._httpService.post(this.GetFullApiUrl(ApiStringConstants.USER_API_ENDPOINT), user);
     }
 
@@ -55,7 +55,7 @@ class UserHttpService  extends BaseHttpService{
      * @param id database id of the user
      * @returns returns a response of user updated
      */
-    EditUser(user: IUser , id : number) {
+    EditUser(user: IUser , id : number) :IPromise<IHttpResponse<IUser>> {
         return this._httpService.put(this.GetFullApiUrl(ApiStringConstants.USER_API_ENDPOINT + '/' + id), user);
     }
 

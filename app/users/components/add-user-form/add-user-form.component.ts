@@ -18,7 +18,6 @@ class AddUserFormController {
     user.firstName = this.firstName;
     user.sirName = this.sirName;
     user.isActive = true;
-    user.id = Math.random();
 
     //#endregion
 

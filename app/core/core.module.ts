@@ -14,6 +14,7 @@ import { UserHttpService } from './services/user.http.service';
 import { configuration } from './core.configuration';
 import { routing } from './core.routes';
 import { AppHeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer-component/footer-component.component';
 
 export const moduleName =
   angular.module('application.core', [
@@ -23,6 +24,7 @@ export const moduleName =
   /**
    * Register Module Components
    */
+  .component(FooterComponent.selector,FooterComponent)
   .component(AppHeaderComponent.selector,AppHeaderComponent)
   .component(App.selector, App)
   .component(Root.selector, Root)
