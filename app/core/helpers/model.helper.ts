@@ -1,3 +1,3 @@
 export function GetUniqueId(): number {
-    return Math.random();
+    return new Date().getTime();
 }

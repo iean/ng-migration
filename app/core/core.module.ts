@@ -14,7 +14,7 @@ import { UserHttpService } from './services/user.http.service';
 import { configuration } from './core.configuration';
 import { routing } from './core.routes';
 import { AppHeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer-component/footer-component.component';
+import { FooterComponent } from './components/footer-component/footer.component';
 
 export const moduleName =
   angular.module('application.core', [

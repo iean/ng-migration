@@ -1,13 +1,46 @@
-<form name="addUserForm" ng-submit="$ctrl.saveUser()" novalidate>
-    <div class="form-group">
-        <label>First name</label>
-        <input type="text" class="form-control" ng-model="$ctrl.firstName" placeholder="firstName" required>
-    </div>
-    <div class="form-group">
-        <label>Sir name</label>
-        <input type="text" class="form-control" ng-model="$ctrl.sirName" placeholder="sirName" required>
-        <small id="emailHelp" class="form-text text-muted">Please provide sir name of the user.</small>
-    </div>
+<div class="table-responsive">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Manage <b>Users</b></h2>
+                </div>
 
-    <button type="submit" class="btn btn-primary">Save User</button>
-</form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <form name="addUserForm" ng-submit="$ctrl.saveUser()" novalidate>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label>First name</label>
+                                <input type="text" class="form-control" ng-model="$ctrl.firstName" placeholder="Enter First Name" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Sir name</label>
+                                <input type="text" class="form-control" ng-model="$ctrl.sirName" placeholder="Enter Sir Name" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <button type="submit" class="btn btn-primary btn-success">
+                Save User
+              </button>
+                            <button type="submit" class="btn btn-primary btn-warning" ui-sref="users">
+                Back To Users
+              </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+        </div>
+    </div>
+</div>

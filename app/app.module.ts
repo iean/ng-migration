@@ -5,7 +5,9 @@ import * as angular from 'angular';
 import { moduleName as coreModule } from './core/core.module';
 import {moduleName as usersModule} from './users/users.module';
 
+
+//'dx'
 export const moduleName =
   angular.module('application', [
-    coreModule,usersModule ,'dx'])
+    coreModule,usersModule])
   .name;

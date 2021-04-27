@@ -12,14 +12,7 @@ module.exports = {
         vendor: [
             "angular/angular.js",
             "angular-ui-router/release/angular-ui-router.js",
-            "angular-sanitize",
-
-        ],
-        dx: [
-            'jquery/dist/jquery.min.js',
-            'jquery/dist/jquery.slim.js',
-            'knockout/build/output/knockout-latest.js',
-            './dx.custom'
+            "angular-sanitize"
         ]
     },
     context: __dirname + "",
